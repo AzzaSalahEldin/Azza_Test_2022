@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-02-27T15:48:31 EET" name="Default suite" finished-at="2022-02-27T15:52:02 EET" duration-ms="211183">
+  <suite started-at="2022-02-27T23:39:06 EET" name="Default suite" finished-at="2022-02-27T23:39:16 EET" duration-ms="9649">
     <groups>
     </groups>
-    <test started-at="2022-02-27T15:48:31 EET" name="Default test" finished-at="2022-02-27T15:52:02 EET" duration-ms="211183">
+    <test started-at="2022-02-27T23:39:06 EET" name="Default test" finished-at="2022-02-27T23:39:16 EET" duration-ms="9649">
       <class name="NewTest">
-        <test-method signature="f()[pri:0, instance:NewTest@39a8312f]" started-at="2022-02-27T15:48:31 EET" name="f" finished-at="2022-02-27T15:52:02 EET" duration-ms="210936" status="PASS">
+        <test-method is-config="true" signature="NewTest_BeforeClass()[pri:0, instance:NewTest@7216fb24]" started-at="2022-02-27T23:39:06 EET" name="NewTest_BeforeClass" finished-at="2022-02-27T23:39:14 EET" duration-ms="7436" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
+        </test-method> <!-- NewTest_BeforeClass -->
+        <test-method signature="case01()[pri:0, instance:NewTest@7216fb24]" started-at="2022-02-27T23:39:14 EET" name="case01" finished-at="2022-02-27T23:39:14 EET" duration-ms="145" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "components.TextField.enterText(String)" because "this.searchfield" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "components.TextField.enterText(String)" because "this.searchfield" is null
+at core.coreClass.enterText(coreClass.java:27)
+at base.baseClass.enterText(baseClass.java:17)
+at NewTest.case01(NewTest.java:31)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- case01 -->
+        <test-method is-config="true" signature="NewTest_AfterClass()[pri:0, instance:NewTest@7216fb24]" started-at="2022-02-27T23:39:15 EET" name="NewTest_AfterClass" finished-at="2022-02-27T23:39:16 EET" duration-ms="520" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NewTest_AfterClass -->
       </class> <!-- NewTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

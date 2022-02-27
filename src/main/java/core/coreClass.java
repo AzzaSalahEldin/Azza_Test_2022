@@ -1,46 +1,72 @@
 package core;
 
-import org.openqa.selenium.By;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import components.TextField;
-import components.TextFieldImpl;
-import core.pageobjects.upm.reporterWeb.AddEditDashboardPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import webelements.factory.api.ElementFactory;
-
 public class coreClass {
-
+	WebDriver driver;
 
 	@FindBy(xpath = "//input[@name='search_query']")
-	private WebElement searchfield;
-	static WebDriver driver;
+	WebElement searchField;
+
+	@FindBy(xpath = "//button[@aria-label='Search']")
+	WebElement clickSearch;
+
+	@FindBy(xpath = "//div[@id='filter-menu']//tp-yt-paper-button[@id='button']")
+	WebElement filterMenu;
+
+	@FindBy(xpath = "//yt-formatted-string[text()='Video']")
+	WebElement clickVedio;
+
+	@FindBy(xpath = "//ytd-video-renderer[@class='style-scope ytd-item-section-renderer']//a[@id='thumbnail']")
+	List<WebElement> vedioList;
+
+	@FindBy(xpath = "//ytd-video-renderer[@class='style-scope ytd-item-section-renderer']//div[@id='title-wrapper']//yt-formatted-string[@class='style-scope ytd-video-renderer']")
+	List<WebElement> vedioName;
+
+	@FindBy(xpath = "//div[@id='info']//div[@id='container']//h1//yt-formatted-string[contains(@class,'ytd-video-primary-info-renderer')]")
+	WebElement vedioTitle;
 
 	public coreClass(WebDriver driver) {
 		this.driver = driver;
-//		 coreClass login=PageFactory.initElements(driver, coreClass.class);
 		PageFactory.initElements(driver, this);
 	}
 
-	public void navigateToURL(String url) {
-		ChromeOptions chromeOptions = new ChromeOptions();
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
-		driver.navigate().to(url);
-//		searchfield.enterText("Selenium Tutorial");
-//		searchfield.sendKeys("Selenium Tutorial");
-		 driver.findElement(By.xpath("//input[@name='search_query']")).sendKeys("Tutorial");
-		 driver.findElement(By.xpath("//button[@aria-label='Search']")).click();
-//		 driver.findElement(By.xpath("//tp-yt-paper-button[contains(@aria-label,'Search filters')]")).click();
-		
-		 driver.findElement(By.xpath("//yt-formatted-string[text()='Filters']")).click();
-		 driver.findElement(By.xpath("//yt-formatted-string[text()='Video']")).click();
+	public void enterText(String text) {
+		searchField.sendKeys(text);
 	}
 
+	public void clickSearch() {
+		clickSearch.click();
+	}
+
+	public void clickFilterMenu() {
+		filterMenu.click();
+	}
+
+	public void clickVedioButton() {
+		clickVedio.click();
+	}
+
+	public String getVedioName(int num) {
+		String name = vedioName.get(num).getText();
+		return name;
+	}
+
+	public String getVedioTitle() {
+		String vedio_title = vedioTitle.getText();
+		return vedio_title;
+	}
+
+	public void clickOnVedio(int num) {
+		vedioList.get(num).click();
+	}
+
+	public void closeDriver() {
+		driver.close();
+	}
 }
